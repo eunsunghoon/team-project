@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%MemberDAO memDao = MemberDAO.getInstance();
-	Connection conn = memDao.getConnetion();
+	<%
+	MemberDAO memDao = MemberDAO.getInstance();
+	Connection conn = memDao.getConnection();
 	out.println("DBCP 연결 성공이라구~");
 	%> 
 </body>

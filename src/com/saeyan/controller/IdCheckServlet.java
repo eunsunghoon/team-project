@@ -22,11 +22,18 @@ public class IdCheckServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("member/idCheck.jsp");
+		String userid = request.getParameter("userid");
+		MemberDAO mDao =MemberDAO.getInstance();
 		
-		dispatcher.forward(request, response);
-				
-				
+		int result = mDao.confirmID(userid);
+		//result는 mDao객체에서 confirmID 메소드를 적용해서 값을 가져온다.
+		
+		request.setAttribute("userid", userid);
+		request.setAttribute("result", result);
+		//request 영역에 저장된 userid 의 값과, result 값을 지정한다.
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("member/idCheck.jsp");
+		dispatcher.forward(request, response);			
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

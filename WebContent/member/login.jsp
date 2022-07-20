@@ -29,7 +29,9 @@
 				<input type="button" value="회원가입"
 					onclick="location.href = 'join.do'">&nbsp;&nbsp;
 					</td>
-				<tr><td colspan ="2">${message}</td></tr>
+			</tr>
+			<tr>
+				<td colspan ="2">${message}</td>
 			</tr>
 		</table>
 	</form>
